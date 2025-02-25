@@ -7,7 +7,7 @@
             <th>Giá bán ra</th>
             <th>Mô tả</th>
             <th>Số lượng</th>
-            <th>Hoa hồng CTV</th>
+            <th>% Cộng tác viên</th>
             <th>Hành động</th>
         </tr>
         <?php
@@ -18,7 +18,7 @@
                 <tr>
                     <td>
                         <a href="<?php echo $product['product_thumbnail']; ?>">
-                            <img width="50" src="<?php echo ROOT_URL.DS.$product['product_thumbnail']; ?>" alt="<?php echo ROOT_URL.DS.$product['product_thumbnail']; ?>">
+                            <img width="50" src="<?php echo ROOT_URL.DS.$product['product_thumbnail']; ?>" alt="<?php echo $product['product_thumbnail']; ?>">
                         </a>
                     </td>
                     <td><?php echo $product['product_name']; ?></td>

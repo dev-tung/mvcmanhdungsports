@@ -1,15 +1,17 @@
 <?php $this->getCmsHeader('Thêm mới sản phẩm'); ?>
     <form class="cmsForm" action="<?php echo $this->route('cms/product/insert');?>" method="POST" id="productAdd" enctype="multipart/form-data">
         <div class="grid gridTwo ipadGridFour desktopGridThree">
-            <div class="cmsSelectGroup">
-                <label class="cmsLabel">Danh mục</label>
+            <div class="cmsSelectGroup validate">
+                <label class="cmsLabel">Danh mục <span class="requiredSymbol">*</span></label>
                 <select class="cmsSlb" name="product_category" id="product_category">
+                    <option value="">Chọn</option>
                     <?php if( !empty( $this->_DATA['procats'] ) ): ?>
                         <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>
                             <option class="cmsSlbOption" value="<?php echo $procat['procat_id']; ?>"><?php echo $procat['procat_name']; ?></option>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </select>
+                <small class="error-message"></small>
                 <input type="hidden" name="product_category_name" id="product_category_name" value="">
             </div>
             <div class="cmsInputGroup validate">
@@ -87,6 +89,10 @@
                 }),
                 Validator.isPInt({
                     selector: '#product_seller_commission',
+                    submit: true
+                }),
+                Validator.slbRequired({
+                    selector: '#product_category',
                     submit: true
                 })
             ],

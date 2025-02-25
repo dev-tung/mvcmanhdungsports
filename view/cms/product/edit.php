@@ -4,6 +4,7 @@
             <div class="cmsSelectGroup">
                 <label class="cmsLabel">Danh mục</label>
                 <select class="cmsSlb" name="product_category" id="product_category">
+                    <option value="">Chọn</option>
                     <?php if( !empty( $this->_DATA['procats'] ) ): ?>
                         <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>
                             <?php $selected = ( $procat['procat_id'] == $this->_DATA['product']['product_category_id'] ) ? 'selected' : ''; ?>
@@ -36,8 +37,6 @@
                 <input type="text" name="product_price_output" class="cmsInput inputCurrency" id="product_price_output" value="<?php echo $this->_DATA['product']['product_price_output']; ?>">
                 <small class="error-message"></small>
             </div>
-
-
             
             <div class="cmsInputGroup validate">
                 <label class="cmsLabel">Số lượng <span class="requiredSymbol">*</span></label>

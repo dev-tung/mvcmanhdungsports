@@ -30,7 +30,7 @@ class ProductController extends Controller{
 
     function update(){
         if( !empty( $_POST ) ){
-            if( !empty( $_FILES['product_thumbnail'] ) ){
+            if( !empty( $_FILES['product_thumbnail']['name'] ) ){
                 $param['product_thumbnail'] = HelperUploadIMG($_FILES['product_thumbnail'], $_POST['product_category_name'], $_POST['product_name']);
             }
 
@@ -52,7 +52,7 @@ class ProductController extends Controller{
 
     function insert(){
         if( !empty( $_POST ) ){
-            if( !empty( $_FILES['product_thumbnail'] ) ){
+            if( !empty( $_FILES['product_thumbnail']['name'] ) ){
                 $param['product_thumbnail'] = HelperUploadIMG($_FILES['product_thumbnail'], $_POST['product_category_name'], $_POST['product_name']);
             }
 

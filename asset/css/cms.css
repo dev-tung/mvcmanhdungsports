@@ -513,12 +513,14 @@ tr:nth-child(even) {
     font-size: 11px;
 }
 
-.valid .cmsInput{
+.valid .cmsInput,
+.valid .cmsSlb{
     background-color: #eaf8e9;
     border: 1px solid #168b10;
 }
 
-.invalid .cmsInput{
+.invalid .cmsInput,
+.invalid .cmsSlb{
     background-color: #f5dfdf;
     border: 1px solid #f08c8c;
 }
