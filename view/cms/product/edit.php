@@ -1,15 +1,17 @@
 <?php $this->getCmsHeader('Sửa sản phẩm'); ?>
-    <form class="cmsForm" action="<?php echo $this->route('cms/product/update', ['id' => $this->_DATA['product']['product_id']]);?>" method="POST" id="productEdit">
+    <form class="cmsForm" action="<?php echo $this->route('cms/product/update', ['id' => $this->_DATA['product']['product_id']]);?>" method="POST" id="productEdit" enctype="multipart/form-data">
         <div class="grid gridTwo ipadGridFour desktopGridThree">
             <div class="cmsSelectGroup">
                 <label class="cmsLabel">Danh mục</label>
-                <select class="cmsSlb" name="product_category" id="">
+                <select class="cmsSlb" name="product_category" id="product_category">
                     <?php if( !empty( $this->_DATA['procats'] ) ): ?>
                         <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>
-                            <option class="cmsSlbOption" value="<?php echo $procat['procat_id']; ?>"><?php echo $procat['procat_name']; ?></option>
+                            <?php $selected = ( $procat['procat_id'] == $this->_DATA['product']['product_category_id'] ) ? 'selected' : ''; ?>
+                            <option class="cmsSlbOption" value="<?php echo $procat['procat_id']; ?>" <?php echo $selected; ?>><?php echo $procat['procat_name']; ?></option>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </select>
+                <input type="hidden" name="product_category_name" id="product_category_name" value="">
             </div>
             <div class="cmsInputGroup validate">
                 <label class="cmsLabel">Tên <span class="requiredSymbol">*</span></label>
@@ -97,7 +99,10 @@
             }
         });
 
-
+        var slb = document.getElementById('product_category');
+        slb.addEventListener("change", function(){
+            document.getElementById('product_category_name').value = slb.options[slb.selectedIndex].text;
+        });
 
     </script>
 

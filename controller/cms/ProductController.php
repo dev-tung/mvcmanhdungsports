@@ -30,45 +30,54 @@ class ProductController extends Controller{
 
     function update(){
         if( !empty( $_POST ) ){
-            $this->_MODEL->updateProduct([
-                'product_name' => $_POST['product_name']
-               ,'product_price_input' => $_POST['product_price_input']
-               ,'product_price_output' => $_POST['product_price_output']
-               ,'product_category_id' => $_POST['product_category']
-               ,'product_description' => $_POST['product_description']
-               ,'product_quantity' => $_POST['product_quantity']
-               ,'product_thumbnail' => $_POST['product_thumbnail']
-               ,'product_image_id' => $_POST['product_thumbnail']
-               ,'product_updated_at' => date("d-m-Y")
-           ], $_GET['id']);
+            if( !empty( $_FILES['product_thumbnail'] ) ){
+                $param['product_thumbnail'] = HelperUploadIMG($_FILES['product_thumbnail'], $_POST['product_category_name'], $_POST['product_name']);
+            }
+
+            $param['product_name'] = $_POST['product_name'];
+            $param['product_price_input'] = $_POST['product_price_input'];
+            $param['product_price_output'] = $_POST['product_price_output'];
+            $param['product_category_id'] = $_POST['product_category'];
+            $param['product_description'] = $_POST['product_description'];
+            $param['product_quantity'] = $_POST['product_quantity'];
+            $param['product_image_id'] = $_POST['product_image_id'];
+            $param['product_created_at'] = date("d-m-Y");
+            $param['product_updated_at'] = date("d-m-Y");
+
+            $this->_MODEL->updateProduct($param, $_GET['id']);
         }
 
         return $this->redirect('cms/product/index', ['success' => "Success"]);
     }
 
     function insert(){
-        HelperUploadIMG(UPLOAD_PATH.DS, 'product_thumbnail');
-
         if( !empty( $_POST ) ){
-            $this->_MODEL->insert('product', [
-                'product_name' => $_POST['product_name']
-               ,'product_price_input' => $_POST['product_price_input']
-               ,'product_price_output' => $_POST['product_price_output']
-               ,'product_category_id' => $_POST['product_category']
-               ,'product_description' => $_POST['product_description']
-               ,'product_quantity' => $_POST['product_quantity']
-               ,'product_thumbnail' => $_POST['product_thumbnail']
-               ,'product_image_id' => $_POST['product_thumbnail']
-               ,'product_created_at' => date("d-m-Y")
-               ,'product_updated_at' => date("d-m-Y")
-           ]);
+            if( !empty( $_FILES['product_thumbnail'] ) ){
+                $param['product_thumbnail'] = HelperUploadIMG($_FILES['product_thumbnail'], $_POST['product_category_name'], $_POST['product_name']);
+            }
+
+            $param['product_name'] = $_POST['product_name'];
+            $param['product_price_input'] = $_POST['product_price_input'];
+            $param['product_price_output'] = $_POST['product_price_output'];
+            $param['product_category_id'] = $_POST['product_category'];
+            $param['product_description'] = $_POST['product_description'];
+            $param['product_quantity'] = $_POST['product_quantity'];
+            $param['product_image_id'] = $_POST['product_image_id'];
+            $param['product_created_at'] = date("d-m-Y");
+            $param['product_updated_at'] = date("d-m-Y");
+            
+            $this->_MODEL->insert('product', $param);
         }
         return $this->redirect('cms/product/index', ['success' => "Success"]);
     }
 
     function delete(){
         if( !empty( $_GET['id'] ) ){
-            $this->_MODEL->deleteProduct($_GET['id']);
+            $product = $this->_MODEL->getProductByID($_GET['id']);
+            if( !empty( $product ) ){
+                $this->_MODEL->deleteProduct($_GET['id']);
+                HelperDeleteIMG($product['product_thumbnail']);
+            }
         }
         return $this->redirect('cms/product/index', ['success' => "Success"]);
     }

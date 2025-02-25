@@ -17,8 +17,8 @@
             <?php foreach( $this->_DATA['products'] as $product ): ?>
                 <tr>
                     <td>
-                        <a href="<?php echo $this->asset('img/default/77Pro.png'); ?>">
-                            <img width="50" src="<?php echo $this->asset('img/default/77Pro.png'); ?>" alt="">
+                        <a href="<?php echo $product['product_thumbnail']; ?>">
+                            <img width="50" src="<?php echo ROOT_URL.DS.$product['product_thumbnail']; ?>" alt="<?php echo ROOT_URL.DS.$product['product_thumbnail']; ?>">
                         </a>
                     </td>
                     <td><?php echo $product['product_name']; ?></td>
