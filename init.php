@@ -33,7 +33,6 @@ class Init {
         include LIBRARY_PATH.DS.'Model.php';
         include LIBRARY_PATH.DS.'Controller.php';
         include LIBRARY_PATH.DS.'View.php';
-
         
         // HelperDD($actionName);
     }
@@ -60,7 +59,7 @@ class Init {
     function model(){
         $modelClass = ucfirst($this->_C).'Model';
         
-        $modelFile = MODEL_PATH . DS . $this->_M . DS . $modelClass .'.php';
+        $modelFile = MODEL_PATH . DS . $modelClass .'.php';
 
         if( !file_exists($modelFile) ){
             die('Model is not exists!');

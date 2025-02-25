@@ -15,10 +15,10 @@
             <div class="modalBody">
                 <div class="modalWidth">
                     <ul class="modalBodyUl">
-                        <li class="modalBodyLi"><a href="<?php echo $this->route('cms/product/index');?>" class="modalBodyAnchor">SẢN PHẨM danh sách</a></li>
-                        <li class="modalBodyLi"><a href="<?php echo $this->route('cms/product/add');?>" class="modalBodyAnchor">SẢN PHẨM thêm mới</a></li>
                         <li class="modalBodyLi"><a href="<?php echo $this->route('cms/procat/index');?>" class="modalBodyAnchor">DANH MỤC SẢN PHẨM danh sách</a></li>
                         <li class="modalBodyLi"><a href="<?php echo $this->route('cms/procat/add');?>" class="modalBodyAnchor">DANH MỤC SẢN PHẨM thêm mới</a></li>
+                        <li class="modalBodyLi"><a href="<?php echo $this->route('cms/product/index');?>" class="modalBodyAnchor">SẢN PHẨM danh sách</a></li>
+                        <li class="modalBodyLi"><a href="<?php echo $this->route('cms/product/add');?>" class="modalBodyAnchor">SẢN PHẨM thêm mới</a></li>
                         <li class="modalBodyLi"><a href="<?php echo $this->route('cms/product/insert');?>" class="modalBodyAnchor">CHI PHÍ danh sách</a></li>
                         <li class="modalBodyLi"><a href="<?php echo $this->route('cms/product/insert');?>" class="modalBodyAnchor">CHI PHÍ thêm mới</a></li>
                     </ul>

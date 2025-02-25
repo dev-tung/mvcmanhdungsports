@@ -28,17 +28,14 @@
                     <td><?php echo $product['product_quantity']; ?></td>
                     <td><?php echo $product['product_seller_commission']; ?></td>
                     <td>
-                        <a href="edit.html">Sửa</a> |
-                        <a href="" onclick="return confirm('Do you want to delete this participant?')">Xóa</a>
+                        <a href="<?php echo $this->route('cms/product/edit', ['id' => $product['product_id']]);?>">Sửa</a> |
+                        <a href="<?php echo $this->route('cms/product/delete', ['id' => $product['product_id']]);?>" onclick="return confirm('Do you want to delete this participant?')">Xóa</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>
         </tbody>
     </table>
-    
-
-
 <?php $this->getCmsFooter(); ?>
 
 

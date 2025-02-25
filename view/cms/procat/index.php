@@ -2,8 +2,9 @@
 
     <table>
         <tbody><tr>
-            <th>ID</th>
+            <th>STT</th>
             <th>Tên</th>
+            <th>ID</th>
             <th>ID cha</th>
             <th>Mô tả</th>
             <th>Hành động</th>
@@ -12,10 +13,11 @@
             //HelperDD($this->_DATA['procats']);
         ?>
         <?php if( !empty( $this->_DATA['procats'] ) ): ?>
-            <?php foreach( $this->_DATA['procats'] as $procat ): ?>
+            <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>
                 <tr>
-                    <td><?php echo $procat['procat_id']; ?></td>
+                    <td><?php echo $key + 1; ?></td>
                     <td><?php echo $procat['procat_name']; ?></td>
+                    <td><?php echo $procat['procat_id']; ?></td>
                     <td><?php echo $procat['procat_parent_id']; ?></td>
                     <td><?php echo $procat['procat_description']; ?></td>
                     <td>

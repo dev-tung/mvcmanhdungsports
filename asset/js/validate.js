@@ -1,6 +1,6 @@
 Validator.message = {
-    'required'  : 'Vui lòng không để trống thông tin này!',
-    'option'    : 'Bạn phải lựa chọn ít nhất một option!',
+    'required'  : 'Trường bắt buộc!',
+    'option'    : 'Chọn ít nhất một option!',
     'extension' : 'Đuôi mở rộng cho phép ',
     'size'      : 'Dung lượng không được vượt quá ',
     'email'     : 'Địa chỉ email không hợp lệ!'
@@ -123,6 +123,13 @@ function Validator( options ) {
                             Functions.uploadSignaturePhoto(signatureValid, evt);
                         }
                         break;
+                    case 'currency':
+                        element.onblur = function(){
+                            validate(element, customRules[rule.selector], rule.error);
+                            element.value = Validator.toVND(element.value);
+                        }
+                        break;
+
                     default:
                         element.onblur = function(){
                             validate(element, customRules[rule.selector], rule.error);
@@ -133,6 +140,19 @@ function Validator( options ) {
 
         });
     }
+}
+
+Validator.toVND = (value) => {
+    value = value.toString().replace(/\./g, "");
+    const formatted = new Intl.NumberFormat("it-IT", {
+            style: "currency",
+            currency: "VND",
+        })
+        .format(value)
+        .replace("VND", "")
+        .trim();
+    
+    return formatted;
 }
 
 Validator.email = function({selector, msg, submit}) {
@@ -321,7 +341,21 @@ Validator.isPInt = function({selector, msg, submit}) {
             return parseInt(element.value) > 0 || !element.value.trim() 
                     ? undefined 
                     : msg 
-                    || 'The number must be greater than 0 / Số phải lớn hơn 0!';
+                    || 'TSố phải lớn hơn 0!';
+        }
+    };
+}
+
+Validator.currency = function({selector, msg, submit}) {
+    return {
+        type: 'currency',
+        selector: selector,
+        submit: submit,
+        test: function( element, formElement ){
+            return parseInt(element.value) > 0 || !element.value.trim() 
+                    ? undefined 
+                    : msg 
+                    || 'Hãy nhập số tiền!';
         }
     };
 }
