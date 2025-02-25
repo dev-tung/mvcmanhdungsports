@@ -47,6 +47,8 @@ class ProductController extends Controller{
     }
 
     function insert(){
+        HelperUploadIMG(UPLOAD_PATH.DS, 'product_thumbnail');
+
         if( !empty( $_POST ) ){
             $this->_MODEL->insert('product', [
                 'product_name' => $_POST['product_name']

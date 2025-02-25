@@ -7,6 +7,7 @@
     define("VIEW_PATH", 'view');
     define("ASSET_PATH", 'asset');
     define("LIBRARY_PATH", 'library');
+    define("UPLOAD_PATH", 'upload');
     define("ROOT_URL", (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST']);
 
     // CMS

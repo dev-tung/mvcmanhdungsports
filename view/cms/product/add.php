@@ -1,5 +1,5 @@
 <?php $this->getCmsHeader('Thêm mới sản phẩm'); ?>
-    <form class="cmsForm" action="<?php echo $this->route('cms/product/insert');?>" method="POST" id="productAdd">
+    <form class="cmsForm" action="<?php echo $this->route('cms/product/insert');?>" method="POST" id="productAdd" enctype="multipart/form-data">
         <div class="grid gridTwo ipadGridFour desktopGridThree">
             <div class="cmsSelectGroup">
                 <label class="cmsLabel">Danh mục</label>
@@ -43,9 +43,10 @@
                 <small class="error-message"></small>
             </div>
 
-            <div class="cmsInputGroup">
+            <div class="cmsInputGroup validate">
                 <label class="cmsLabel">% Cộng tác viên</label>
                 <input type="number" name="product_seller_commission" class="cmsInput" id="product_seller_commission">
+                <small class="error-message"></small>
             </div>
 
             <div class="cmsInputGroup">
