@@ -1,5 +1,5 @@
 <?php
-    //HelperDD($this->_DATA['procat']);
+    //DD($this->_DATA['procat']);
 ?>
 <?php $this->getCmsHeader('Sửa danh mục sản phẩm'); ?>
     <form class="cmsForm" action="<?php echo $this->route('cms/procat/update', ['id' => $this->_DATA['procat']['procat_id']]);?>" method="POST" id="procatEdit">

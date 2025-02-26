@@ -8,7 +8,7 @@ class ProcatController extends Controller{
 
     function index(){
         $procats = $this->_MODEL->get('procat');
-        // HelperDD($procats);
+        // DD($procats);
         $this->_VIEW->render(['cms','procat', 'index'], ['procats' => $procats]);
     }
 

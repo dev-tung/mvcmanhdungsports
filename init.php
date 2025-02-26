@@ -34,7 +34,7 @@ class Init {
         include LIBRARY_PATH.DS.'Controller.php';
         include LIBRARY_PATH.DS.'View.php';
         
-        // HelperDD($actionName);
+        // DD($actionName);
     }
 
     function controller(){

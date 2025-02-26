@@ -20,7 +20,7 @@ class View {
         }
         
         $viewPath = VIEW_PATH . DS . implode(DS, $arrayPath) . '.php';
-        // HelperDD($viewPath);
+        // DD($viewPath);
         if( !file_exists( $viewPath ) ){
             die('View file is not exists!');
         }
@@ -30,7 +30,7 @@ class View {
     function route( $value, $param = NULL ){
        
         $paramURL = !empty( $param ) ? '?'.http_build_query($param, null, '/') : '';
-        //HelperDD($data);
+        //DD($data);
         return ROOT_URL . DS . $value . $paramURL;
     }
 

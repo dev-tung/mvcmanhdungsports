@@ -352,7 +352,7 @@ Validator.currency = function({selector, msg, submit}) {
         selector: selector,
         submit: submit,
         test: function( element, formElement ){
-            return parseInt(element.value) > 0 || !element.value.trim() 
+            return !isNaN(element.value)
                     ? undefined 
                     : msg 
                     || 'Hãy nhập số tiền!';

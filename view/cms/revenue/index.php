@@ -1,17 +1,4 @@
-<?php $this->getCmsHeader('Danh sách sản phẩm'); ?>
-    <form class="cmsFilter" action="">
-        <div class="cmsFilterGrid">
-            <div class="cmsInputGroup">
-                <label class="cmsLabel">Tên sản phẩm</label>
-                <input type="number" name="product_price_input" id="product_price_input">
-            </div>
-            <div class="cmsInputGroup">
-                <label class="cmsLabel">Danh mục sản phẩm</label>
-                <input type="text" name="product_price_output" id="product_price_output">
-            </div>
-        </div>
-        <button>Lọc</button>
-    </form>
+<?php $this->getCmsHeader('Danh sách doanh thu'); ?>
     <table>
         <tbody><tr>
             <th>Ảnh thumbnail</th>

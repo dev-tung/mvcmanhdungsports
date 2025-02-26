@@ -12,7 +12,7 @@
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </select>
-                <input type="hidden" name="product_category_name" id="product_category_name" value="">
+                <input type="hidden" name="product_category_name" id="product_category_name" value="<?php echo $this->_DATA['product']['procat_name']; ?>">
             </div>
             <div class="cmsInputGroup validate">
                 <label class="cmsLabel">Tên <span class="requiredSymbol">*</span></label>
@@ -41,12 +41,6 @@
             <div class="cmsInputGroup validate">
                 <label class="cmsLabel">Số lượng <span class="requiredSymbol">*</span></label>
                 <input type="number" name="product_quantity" class="cmsInput" id="product_quantity" value="<?php echo $this->_DATA['product']['product_quantity']; ?>">
-                <small class="error-message"></small>
-            </div>
-
-            <div class="cmsInputGroup validate">
-                <label class="cmsLabel">% Cộng tác viên</label>
-                <input type="number" name="product_seller_commission" class="cmsInput" id="product_seller_commission" value="<?php echo $this->_DATA['product']['product_seller_commission']; ?>">
                 <small class="error-message"></small>
             </div>
 
@@ -86,10 +80,6 @@
                 }),
                 Validator.tbRequired({
                     selector: '#product_quantity',
-                    submit: true
-                }),
-                Validator.isPInt({
-                    selector: '#product_seller_commission',
                     submit: true
                 })
             ],

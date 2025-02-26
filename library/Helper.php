@@ -3,7 +3,7 @@
         $target_folder = UPLOAD_PATH.DS.$category;
         
         $target_file = $target_folder. DS . $uploadFileName . '.' .pathinfo($file["name"], PATHINFO_EXTENSION);
-        //HelperDD( $target_file );
+        //DD( $target_file );
 
         if (!file_exists($target_folder)) {
             mkdir($target_folder, 0777, true);
@@ -17,7 +17,7 @@
         unlink($filePath);
     }
 
-    function HelperDD($data){
+    function DD($data){
         echo '<pre>';
         print_r($data);
         echo '</pre>';

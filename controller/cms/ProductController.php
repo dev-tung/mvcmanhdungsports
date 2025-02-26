@@ -35,8 +35,8 @@ class ProductController extends Controller{
             }
 
             $param['product_name'] = $_POST['product_name'];
-            $param['product_price_input'] = $_POST['product_price_input'];
-            $param['product_price_output'] = $_POST['product_price_output'];
+            $param['product_price_input'] = str_replace('.', '',$_POST['product_price_input']);
+            $param['product_price_output'] = str_replace('.', '',$_POST['product_price_output']);
             $param['product_category_id'] = $_POST['product_category'];
             $param['product_description'] = $_POST['product_description'];
             $param['product_quantity'] = $_POST['product_quantity'];
@@ -57,8 +57,8 @@ class ProductController extends Controller{
             }
 
             $param['product_name'] = $_POST['product_name'];
-            $param['product_price_input'] = $_POST['product_price_input'];
-            $param['product_price_output'] = $_POST['product_price_output'];
+            $param['product_price_input'] = str_replace('.', '',$_POST['product_price_input']);
+            $param['product_price_output'] = str_replace('.', '',$_POST['product_price_output']);
             $param['product_category_id'] = $_POST['product_category'];
             $param['product_description'] = $_POST['product_description'];
             $param['product_quantity'] = $_POST['product_quantity'];

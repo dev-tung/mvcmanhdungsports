@@ -541,3 +541,198 @@ tr:nth-child(even) {
 .cmsInputGroup50{
     width: 50%;
 }
+
+
+/* Nav */
+
+.NavLgContainer{
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.NavLg{
+    background-color: var(--c1);
+    padding: 15px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    box-shadow: var(--s1);
+}
+
+.NavLgLeft{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.NavLgLogo-SVG{
+    color: white;
+}
+
+.productSearch{
+    display: none;
+}
+
+.productSearchBtn{
+    padding: 0;
+    border: none;
+    width: 100%;
+}
+
+.productSearchGroup{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.productSearchModal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.productSearchModal.Show{
+    display: flex;
+}
+
+.productSearchModal::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(101,108,133,0.8);
+}
+
+.productSearchBox{
+    margin-top: 120px;
+    position: absolute;
+    background-color: #f5f6f7;
+    width: 560px;
+    max-height: 400px;
+    z-index: 2;
+    border-radius: 5px;
+    box-shadow: var(--s1);
+}
+
+.productSearchForm{
+    border: 2px solid #b9b9b9;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    margin: 15px;
+}
+
+.productSearchResult{
+    margin: 15px;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.productSearchTitle{
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--c1);
+    font-weight: 600;
+}
+
+.productSearchContent{
+    display: grid;
+    grid-template-columns: 20px calc(100% - 30px);
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    gap: 15px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgba(33, 37, 41, 0.75);
+    align-items: center;
+}
+
+.productSearchResult-No{
+    margin: 45px auto;
+    width: fit-content;
+    font-size: .9em;
+    color: rgba(33, 37, 41, 0.75);
+}
+
+.productSearchNote-Text{
+    font-size: 12px;
+}
+
+.productSearchNote{
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 -1px 0 0 #e0e3e8,0 -3px 6px 0 rgba(69,98,155,0.12);
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    color: rgba(33, 37, 41, 0.75);
+}
+
+.productSearchNoteGroup{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.productSearchNote-Icon{
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.productSearchForm-Icon{
+    color: var(--c1);
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+.productSearchForm-Input{
+    width: 100%;
+    height: 100%;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    background-color: #f5f6f7;
+    letter-spacing: 0.1px;
+}
+
+.productSearchForm-Reset{
+    background: none;
+    border: none;
+}
+
+.productSearchForm-Reset:hover{
+    cursor: pointer;
+    color: var(--c1);
+}
+
+.cmsFilter{
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: var(--cl1);
+}
+
+.cmsFilterGrid{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}

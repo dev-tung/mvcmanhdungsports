@@ -6,7 +6,8 @@ class ProductModel extends Model {
     }
 
     function getProductByID($id){
-        $sql    = "SELECT * FROM product WHERE product_id = " . $id;
+        $sql = "SELECT * FROM `product` p LEFT JOIN procat pc ON p.product_category_id = pc.procat_id WHERE product_id = $id";
+  
         $result = $this->_CONNECTION->query($sql);
         $product = $result->fetch_array(MYSQLI_ASSOC);
         
@@ -23,7 +24,7 @@ class ProductModel extends Model {
     }
 
     function deleteProduct($id){
-        // HelperDD($procats);
+        // DD($procats);
         $sql = "DELETE FROM product WHERE product_id = " . $id;
         if( !$this->excuseSQL($sql) ){
             die('Can not delete product!');

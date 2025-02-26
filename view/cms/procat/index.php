@@ -10,7 +10,7 @@
             <th>Hành động</th>
         </tr>
         <?php
-            //HelperDD($this->_DATA['procats']);
+            //DD($this->_DATA['procats']);
         ?>
         <?php if( !empty( $this->_DATA['procats'] ) ): ?>
             <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>

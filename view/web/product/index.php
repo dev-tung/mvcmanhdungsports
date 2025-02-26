@@ -11,7 +11,7 @@
             <th>Hành động</th>
         </tr>
         <?php
-            //HelperDD($this->_DATA['products']);
+            //DD($this->_DATA['products']);
         ?>
         <?php if( !empty( $this->_DATA['products'] ) ): ?>
             <?php foreach( $this->_DATA['products'] as $product ): ?>

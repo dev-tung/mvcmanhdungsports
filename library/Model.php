@@ -23,7 +23,7 @@ class Model {
         $field = implode(',', array_keys($data));
         $value = implode("','", $data);
         $sql = "INSERT INTO $table ($field) VALUES ('$value')";
-        // HelperDD($sql);
+        // DD($sql);
         return $this->excuseSQL($sql);
     }
 
