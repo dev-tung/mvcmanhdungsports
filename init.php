@@ -33,6 +33,7 @@ class Init {
         include LIBRARY_PATH.DS.'Model.php';
         include LIBRARY_PATH.DS.'Controller.php';
         include LIBRARY_PATH.DS.'View.php';
+        include LIBRARY_PATH.DS.'Api.php';
         
         // DD($actionName);
     }
@@ -40,20 +41,40 @@ class Init {
     function controller(){
         $actionName = $this->_A;
 
-        $controllerClass = ucfirst($this->_C).'Controller';
+        if( $this->_M == 'api' ){
+            $apiClass = ucfirst($this->_C).'Api';
+    
+            $apiFile = API_PATH.DS.$apiClass.'.php';
+            if( !file_exists($apiFile) ){
+                die('Api file is not exists!');
+            }
+    
+            require_once $apiFile;
+            $api = new $apiClass();
+    
+            if( !method_exists($api, $actionName) ){
+                die('Api method is not exists!');
+            }
+            $api->$actionName();
 
-        $controllerFile = CONTROLLER_PATH.DS.$this->_M.DS.$controllerClass.'.php';
-        if( !file_exists($controllerFile) ){
-            die('Controller is not exists!');
+        }else{
+
+            $controllerClass = ucfirst($this->_C).'Controller';
+    
+            $controllerFile = CONTROLLER_PATH.DS.$this->_M.DS.$controllerClass.'.php';
+            if( !file_exists($controllerFile) ){
+                die('Controller is not exists!');
+            }
+    
+            require_once $controllerFile;
+            $controller = new $controllerClass();
+    
+            if( !method_exists($controller, $actionName) ){
+                die('Method is not exists!');
+            }
+            $controller->$actionName();
         }
 
-        require_once $controllerFile;
-        $controller = new $controllerClass();
-
-        if( !method_exists($controller, $actionName) ){
-            die('Method is not exists!');
-        }
-        $controller->$actionName();
     }
 
     function model(){
@@ -66,5 +87,6 @@ class Init {
         }
         require_once $modelFile;
     }
+
 
 }

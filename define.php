@@ -3,6 +3,7 @@
 
     define('ROOT_PATH', realpath($_SERVER["DOCUMENT_ROOT"]));
     define("CONTROLLER_PATH", 'controller');
+    define("API_PATH", 'api');
     define("MODEL_PATH", 'model');
     define("VIEW_PATH", 'view');
     define("ASSET_PATH", 'asset');

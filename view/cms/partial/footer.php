@@ -29,22 +29,8 @@
         </div>
     </div>
 
-    <script>
-        // Show cms menu
-        document.querySelectorAll('.cmsMenuToggle').forEach( e => {
-            e.onclick = () => {
-                document.getElementById('modalMenu').style.display = "block";
-            }
-        });
-
-        // Hide cms menu
-        document.querySelectorAll('.modalClsIcon, .modalOverlay').forEach( e => {
-            e.onclick = () => {
-                document.querySelectorAll('.modal').forEach((e) => {
-                    e.style.display = "none";
-                });
-            }
-        });
-    </script>
+    <script src="<?php echo $this->asset('/js/function.js'); ?>"></script>
+    <script src="<?php echo $this->asset('/js/validate.js'); ?>"></script>
+    <script src="<?php echo $this->asset('/js/modal.js'); ?>"></script>
 </body>
 </html>

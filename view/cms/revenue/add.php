@@ -16,9 +16,9 @@
             </div>
             <div class="cmsInputGroup validate">
                 <label class="cmsLabel">Tên sản phẩm<span class="requiredSymbol">*</span></label>
-                <input type="text" name="revenue_name" class="cmsInput" id="revenue_name" data-modal-action="toggle" data-modal-target="#productSearchModal">
+                <input type="text" name="revenue_name" class="cmsInput" id="revenue_name" data-modal-action="toggle" data-modal-target="#popupSearchModal">
+                <input type="hidden" name="revenue_id" class="cmsInput" id="revenue_id">
                 <small class="error-message"></small>
-            </button>
             </div>
             <div class="cmsInputGroup validate">
                 <label class="cmsLabel">Số lượng <span class="requiredSymbol">*</span></label>
@@ -59,51 +59,28 @@
     </form>
 
 
-    <div class="productSearch" id="productSearch">
-        <div class="productSearchModal" id="productSearchModal">
-            <div class="productSearchBox">
-                <form class="productSearchForm">
-                    <svg class="productSearchForm-Icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                    <input class="productSearchForm-Input" id="productSearchFormInput" type="text" placeholder="Tìm kiếm sản phẩm">
-                    <button type="reset" title="Clear the query" class="productSearchForm-Reset" aria-label="Clear the query"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 10l5.09-5.09L10 10l5.09 5.09L10 10zm0 0L4.91 4.91 10 10l-5.09 5.09L10 10z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+    <div class="popupSearch" id="popupSearch">
+        <div class="popupSearchModal" id="popupSearchModal">
+            <div class="popupSearchBox">
+                <form class="popupSearchForm">
+                    <svg class="popupSearchFormIcon" viewBox="0 0 20 20" aria-hidden="true"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <input class="popupSearchFormInput" id="popupSearchFormInput" type="text" placeholder="Tìm kiếm sản phẩm">
+                    <button type="reset" title="Clear the query" class="popupSearchFormReset" aria-label="Clear the query"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 10l5.09-5.09L10 10l5.09 5.09L10 10zm0 0L4.91 4.91 10 10l-5.09 5.09L10 10z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
                 </form>
-                <div class="productSearchResult" id="productSearchResult">
-                    <p class="productSearchResult-No">Không có kết quả!</p>
+                <div class="popupSearchResult" id="popupSearchResult">
+                    <p class="popupSearchResultNo">Không có kết quả!</p>
                 </div>
-                <div class="productSearchNote">
-                    <div class="productSearchNoteGroup">
-                        <span class="productSearchNote-Text">Nhập tên sản phẩm để tìm kiếm</span>
+                <div class="popupSearchNote">
+                    <div class="popupSearchNoteGroup">
+                        <span class="popupSearchNoteText">Nhập tên sản phẩm để tìm kiếm</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End productSearch -->
+    <!-- End popupSearch -->
 
-    <script src="<?php echo $this->asset('/js/validate.js'); ?>"></script>
-    <script src="<?php echo $this->asset('/js/function.js'); ?>"></script>
-    <script src="<?php echo $this->asset('/js/modal.js'); ?>"></script>
-    <script src="<?php echo $this->asset('/js/revenue.js'); ?>"></script>
     
-    <script>
-        Validator({
-            form: '#revenueAdd',
-            rules: [
-                Validator.slbRequired({
-                    selector: '#revenue_category',
-                    submit: true
-                })
-            ],
-            onSubmit: (data) => {
-                data.form.submit();
-            }
-        });
-
-        var slb = document.getElementById('revenue_category');
-        slb.addEventListener("change", function(){
-            document.getElementById('revenue_category_name').value = slb.options[slb.selectedIndex].text;
-        });
-
-    </script>
 
 <?php $this->getCmsFooter(); ?>
+<script src="<?php echo $this->asset('/js/cms/revenue.js'); ?>"></script>

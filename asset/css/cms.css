@@ -530,11 +530,11 @@ tr:nth-child(even) {
     margin-bottom: 10px;
 }
 
-.cmsSuccessMessage{
+.cmsMessage-success{
     background-color: #eaf8e9;
 }
 
-.cmsErrorMessage{
+.cmsMessage-error{
     background-color: #f5dfdf;
 }
 
@@ -572,23 +572,23 @@ tr:nth-child(even) {
     color: white;
 }
 
-.productSearch{
+.popupSearch{
     display: none;
 }
 
-.productSearchBtn{
+.popupSearchBtn{
     padding: 0;
     border: none;
     width: 100%;
 }
 
-.productSearchGroup{
+.popupSearchGroup{
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.productSearchModal{
+.popupSearchModal{
     position: fixed;
     top: 0;
     right: 0;
@@ -600,11 +600,11 @@ tr:nth-child(even) {
     display: none;
 }
 
-.productSearchModal.Show{
+.popupSearchModal.Show{
     display: flex;
 }
 
-.productSearchModal::after{
+.popupSearchModal::after{
     content: '';
     position: absolute;
     width: 100%;
@@ -612,7 +612,7 @@ tr:nth-child(even) {
     background-color: rgba(101,108,133,0.8);
 }
 
-.productSearchBox{
+.popupSearchBox{
     margin-top: 120px;
     position: absolute;
     background-color: #f5f6f7;
@@ -623,7 +623,7 @@ tr:nth-child(even) {
     box-shadow: var(--s1);
 }
 
-.productSearchForm{
+.popupSearchForm{
     border: 2px solid #b9b9b9;
     border-radius: 5px;
     display: flex;
@@ -633,7 +633,7 @@ tr:nth-child(even) {
     margin: 15px;
 }
 
-.productSearchResult{
+.popupSearchResult{
     margin: 15px;
     font-size: 12px;
     line-height: 15px;
@@ -645,14 +645,14 @@ tr:nth-child(even) {
     overflow-y: auto;
 }
 
-.productSearchTitle{
+.popupSearchTitle{
     margin-bottom: 6px;
     font-size: 14px;
     color: var(--c1);
     font-weight: 600;
 }
 
-.productSearchContent{
+.popupSearchContent{
     display: grid;
     grid-template-columns: 20px calc(100% - 30px);
     border: 1px solid #dee2e6;
@@ -664,18 +664,18 @@ tr:nth-child(even) {
     align-items: center;
 }
 
-.productSearchResult-No{
+.popupSearchResultNo{
     margin: 45px auto;
     width: fit-content;
     font-size: .9em;
     color: rgba(33, 37, 41, 0.75);
 }
 
-.productSearchNote-Text{
+.popupSearchNoteText{
     font-size: 12px;
 }
 
-.productSearchNote{
+.popupSearchNote{
     background-color: #fff;
     padding: 15px;
     border-radius: 0 0 5px 5px;
@@ -686,26 +686,26 @@ tr:nth-child(even) {
     color: rgba(33, 37, 41, 0.75);
 }
 
-.productSearchNoteGroup{
+.popupSearchNoteGroup{
     display: flex;
     gap: 5px;
     align-items: center;
 }
 
-.productSearchNote-Icon{
+.popupSearchNote-Icon{
     background-color: rgba(0, 0, 0, 0.1);
     padding: 2px;
     border-radius: 2px;
 }
 
-.productSearchForm-Icon{
+.popupSearchFormIcon{
     color: var(--c1);
     width: 25px;
     height: 25px;
     display: block;
 }
 
-.productSearchForm-Input{
+.popupSearchFormInput{
     width: 100%;
     height: 100%;
     font-size: 1.2em;
@@ -715,12 +715,12 @@ tr:nth-child(even) {
     letter-spacing: 0.1px;
 }
 
-.productSearchForm-Reset{
+.popupSearchFormReset{
     background: none;
     border: none;
 }
 
-.productSearchForm-Reset:hover{
+.popupSearchFormReset:hover{
     cursor: pointer;
     color: var(--c1);
 }

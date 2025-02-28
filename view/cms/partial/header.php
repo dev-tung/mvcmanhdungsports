@@ -9,7 +9,7 @@
 <body>
     <div class="cms">
         <header class="cmsHeader">
-            <button class="cmsPageTitle cmsMenuToggle" id="cmsMenuToggle">MENU<?php echo !empty( $this->_PAGE_TITLE ) ? ' → '. $this->_PAGE_TITLE : ''; ?></button>
+            <button class="cmsPageTitle cmsMenuToggle" data-modal-action="toggle" data-modal-target="#cmsMenuToggle">MENU<?php echo !empty( $this->_PAGE_TITLE ) ? ' → '. $this->_PAGE_TITLE : ''; ?></button>
         </header>
         <div class="cmsBody">
             <div class="cmsContent">

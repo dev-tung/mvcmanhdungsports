@@ -1,3 +1,19 @@
+// Show cms menu
+document.querySelectorAll('.cmsMenuToggle').forEach( e => {
+    e.onclick = () => {
+        document.getElementById('modalMenu').style.display = "block";
+    }
+});
+
+// Hide cms menu
+document.querySelectorAll('.modalClsIcon, .modalOverlay').forEach( e => {
+    e.onclick = () => {
+        document.querySelectorAll('.modal').forEach((e) => {
+            e.style.display = "none";
+        });
+    }
+});
+
 const MODAL = {
     Toggle : ({e, b}) => {
         b.addEventListener("click", function(){

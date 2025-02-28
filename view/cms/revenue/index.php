@@ -1,4 +1,5 @@
 <?php $this->getCmsHeader('Danh sách doanh thu'); ?>
+
     <table>
         <tbody><tr>
             <th>Ảnh thumbnail</th>

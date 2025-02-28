@@ -1,11 +1,11 @@
 <?php if( isset($_COOKIE['successMessage']) ): ?>
-    <div class="cmsMessage cmsSuccessMessage">
+    <div class="cmsMessage cmsMessage-success">
         <?php echo $_COOKIE['successMessage']?>
     </div>
 <?php endif; ?>
 
 <?php if( isset($_COOKIE['errorMessage']) ): ?>
-    <div class="cmsMessage cmsErrorMessage">
+    <div class="cmsMessage cmsMessage-error">
         <?php echo $_COOKIE['errorMessage']?>
     </div>
 <?php endif; ?>

@@ -52,7 +52,6 @@
     </form>
 
     <script src="<?php echo $this->asset('/js/validate.js'); ?>"></script>
-    <script src="<?php echo $this->asset('/js/function.js'); ?>"></script>
     <script>
         Validator({
             form: '#productAdd',
@@ -80,7 +79,7 @@
                 Validator.tbRequired({
                     selector: '#product_quantity',
                     submit: true
-                })
+                }),
                 Validator.slbRequired({
                     selector: '#product_category',
                     submit: true
