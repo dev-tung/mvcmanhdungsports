@@ -29,6 +29,7 @@
         </div>
     </div>
 
+    <script src="<?php echo $this->asset('/js/define.js'); ?>"></script>
     <script src="<?php echo $this->asset('/js/function.js'); ?>"></script>
     <script src="<?php echo $this->asset('/js/validate.js'); ?>"></script>
     <script src="<?php echo $this->asset('/js/modal.js'); ?>"></script>

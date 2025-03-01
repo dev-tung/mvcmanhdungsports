@@ -17,6 +17,18 @@ class ProductModel extends Model {
         return $product;
     }
 
+    function getProductByProcatID($procat_id){
+        $sql = "SELECT * FROM `product` WHERE procat_id = $procat_id";
+  
+        $result = $this->_CONNECTION->query($sql);
+        $product = $result->fetch_all(MYSQLI_ASSOC);
+        
+        if( empty($product) ){
+            die('product is not exists!');
+        }
+        return $product;
+    }
+
     function updateProduct($param, $id){
         $updateParam = $this->updateParam($param);
         $sql = "UPDATE product SET $updateParam WHERE product_id = " . $id;

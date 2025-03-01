@@ -1,6 +1,6 @@
 <?php $this->getCmsHeader('Thêm mới doanh thu'); ?>
     <form class="cmsForm" action="<?php echo $this->route('cms/revenue/insert');?>" method="POST" id="revenueAdd" enctype="multipart/form-data">
-        <div class="grid gridTwo ipadGridFour desktopGridThree">
+        <div class="grid">
             <div class="cmsSelectGroup validate">
                 <label class="cmsLabel">Danh mục <span class="requiredSymbol">*</span></label>
                 <select class="cmsSlb" name="revenue_category" id="revenue_category">
@@ -14,47 +14,53 @@
                 <small class="error-message"></small>
                 <input type="hidden" name="revenue_category_name" id="revenue_category_name" value="">
             </div>
-            <div class="cmsInputGroup validate">
-                <label class="cmsLabel">Tên sản phẩm<span class="requiredSymbol">*</span></label>
-                <input type="text" name="revenue_name" class="cmsInput" id="revenue_name" data-modal-action="toggle" data-modal-target="#popupSearchModal">
-                <input type="hidden" name="revenue_id" class="cmsInput" id="revenue_id">
-                <small class="error-message"></small>
-            </div>
-            <div class="cmsInputGroup validate">
-                <label class="cmsLabel">Số lượng <span class="requiredSymbol">*</span></label>
-                <input type="number" name="revenue_quantity" class="cmsInput" id="revenue_quantity">
-                <small class="error-message"></small>
-            </div>
         </div>
+        
+        <div id="cmsRevenueProductCustomer">
+            <div class="grid gridTwo ipadGridFour desktopGridThree">
+                <div class="cmsInputGroup validate">
+                    <label class="cmsLabel">Tên sản phẩm<span class="requiredSymbol">*</span></label>
+                    <input type="text" name="revenue_name" class="cmsInput" id="revenue_name" data-modal-action="toggle" data-modal-target="#popupSearchModal">
+                    <input type="hidden" name="revenue_id" class="cmsInput" id="revenue_id">
+                    <small class="error-message"></small>
+                </div>
+                <div class="cmsInputGroup validate">
+                    <label class="cmsLabel">Số lượng <span class="requiredSymbol">*</span></label>
+                    <input type="number" name="revenue_quantity" class="cmsInput" id="revenue_quantity">
+                    <small class="error-message"></small>
+                </div>
+            </div>
 
-        <div class="grid gridTwo ipadGridFour desktopGridFour">
-            <div class="cmsInputGroup validate">
-                <label class="cmsLabel">Tiền phải thanh toán <span class="requiredSymbol">*</span></label>
-                <input type="text" name="revenue_price_output" class="cmsInput inputCurrency" id="revenue_price_output" disabled>
-                <small class="error-message"></small>
+            <div class="grid gridTwo ipadGridFour desktopGridFour">
+                <div class="cmsInputGroup validate">
+                    <label class="cmsLabel">Tiền phải thanh toán <span class="requiredSymbol">*</span></label>
+                    <input type="text" name="revenue_price_output" class="cmsInput inputCurrency" id="revenue_price_output" disabled>
+                    <small class="error-message"></small>
+                </div>
+                <div class="cmsInputGroup">
+                    <label class="cmsLabel">Tên khách hàng <span class="requiredSymbol">*</span></label>
+                    <input type="text" name="customer_name" class="cmsInput">
+                </div>
+                <div class="cmsInputGroup">
+                    <label class="cmsLabel">SĐT khách hàng</label>
+                    <input type="text" name="customer_phone" class="cmsInput">
+                </div>
+                <div class="cmsSelectGroup validate">
+                    <label class="cmsLabel">Người bán hàng <span class="requiredSymbol">*</span></label>
+                    <select class="cmsSlb" name="revenue_category" id="revenue_category">
+                        <option value="">Chọn</option>
+                        <?php if( !empty( $this->_DATA['procats'] ) ): ?>
+                            <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>
+                                <option class="cmsSlbOption" value="<?php echo $procat['procat_id']; ?>"><?php echo $procat['procat_name']; ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </select>
+                    <small class="error-message"></small>
+                    <input type="hidden" name="revenue_category_name" id="revenue_category_name" value="">
+                </div>
             </div>
-            <div class="cmsInputGroup">
-                <label class="cmsLabel">Tên khách hàng <span class="requiredSymbol">*</span></label>
-                <input type="text" name="customer_name" class="cmsInput">
-            </div>
-            <div class="cmsInputGroup">
-                <label class="cmsLabel">SĐT khách hàng</label>
-                <input type="text" name="customer_phone" class="cmsInput">
-            </div>
-            <div class="cmsSelectGroup validate">
-                <label class="cmsLabel">Người bán hàng <span class="requiredSymbol">*</span></label>
-                <select class="cmsSlb" name="revenue_category" id="revenue_category">
-                    <option value="">Chọn</option>
-                    <?php if( !empty( $this->_DATA['procats'] ) ): ?>
-                        <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>
-                            <option class="cmsSlbOption" value="<?php echo $procat['procat_id']; ?>"><?php echo $procat['procat_name']; ?></option>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </select>
-                <small class="error-message"></small>
-                <input type="hidden" name="revenue_category_name" id="revenue_category_name" value="">
-            </div>
-        </div>
+        </div>    
+        
         <button class="cmsFormBtnSave">Lưu</button>
     </form>
 
