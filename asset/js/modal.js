@@ -38,7 +38,7 @@ const MODAL = {
         }
     },
     Init : () => {
-        document.querySelectorAll('input[data-modal-action="toggle"]').forEach( button => {
+        document.querySelectorAll('input[data-modal-action="toggle"], a[data-modal-action="toggle"]').forEach( button => {
             MODAL.Toggle({
                 e : document.querySelector(button.getAttribute('data-modal-target')), 
                 b : button

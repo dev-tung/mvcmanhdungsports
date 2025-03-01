@@ -97,7 +97,7 @@ html{
 @media (min-width: 1400px) {}
 
 .grid{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .gridTwo{
@@ -297,7 +297,7 @@ html{
 }
 
 .cmsBody{
-    padding : 10px;
+    padding : 30px 10px;
 }
 
 .cmsMenu{
