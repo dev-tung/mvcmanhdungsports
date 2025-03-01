@@ -313,6 +313,7 @@ html{
 .cmsInput{
     width: 100%;
     height: 30px;
+    border: 1px solid #b9b9b9;
 }
 
 .cmsInput50{
