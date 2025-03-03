@@ -22,11 +22,12 @@
                     <label class="cmsLabel">Tên sản phẩm<span class="requiredSymbol">*</span></label>
                     <input type="text" name="revenue_name" class="cmsInput" id="revenue_name" data-modal-action="toggle" data-modal-target="#popupSearchModalProduct">
                     <input type="hidden" name="revenue_id" class="cmsInput" id="revenue_id">
+                    <input type="hidden" name="product_id" class="cmsInput" id="product_id">
                     <small class="error-message"></small>
                 </div>
                 <div class="cmsInputGroup validate">
                     <label class="cmsLabel">Số lượng <span class="requiredSymbol">*</span></label>
-                    <input type="number" name="revenue_quantity" class="cmsInput" id="revenue_quantity">
+                    <input type="number" name="revenue_quantity" class="cmsInput" id="revenue_quantity" min="1" max="1">
                     <small class="error-message"></small>
                 </div>
                 <div class="cmsInputGroup validate">
@@ -42,17 +43,18 @@
                     <input type="text" name="customer_phone" id="customer_phone" class="cmsInput" >
                     <input type="hidden" name="customer_id" class="cmsInput" id="customer_id">
                 </div>
-                <div class="cmsInputGroup">
+                <div class="cmsInputGroup validate">
                     <label class="cmsLabel">Tên khách hàng <span class="requiredSymbol">*</span></label>
                     <input type="text" name="customer_name" class="cmsInput" id="customer_name">
+                    <small class="error-message"></small>
                 </div>
                 <div class="cmsSelectGroup validate">
                     <label class="cmsLabel">Người bán hàng <span class="requiredSymbol">*</span></label>
-                    <select class="cmsSlb" name="revenue_category" id="revenue_category">
+                    <select class="cmsSlb" name="seller_id" id="seller_id">
                         <option value="">Chọn</option>
-                        <?php if( !empty( $this->_DATA['procats'] ) ): ?>
-                            <?php foreach( $this->_DATA['procats'] as $key => $procat ): ?>
-                                <option class="cmsSlbOption" value="<?php echo $procat['procat_id']; ?>"><?php echo $procat['procat_name']; ?></option>
+                        <?php if( !empty( $this->_DATA['sellers'] ) ): ?>
+                            <?php foreach( $this->_DATA['sellers'] as $key => $seller ): ?>
+                                <option class="cmsSlbOption" value="<?php echo $seller['seller_id']; ?>"><?php echo $seller['seller_name']; ?></option>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </select>

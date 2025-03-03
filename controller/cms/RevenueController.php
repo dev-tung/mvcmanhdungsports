@@ -13,7 +13,8 @@ class RevenueController extends Controller{
 
     function add(){
         $procats = $this->_MODEL->get('procat');
-        $this->_VIEW->render(['cms','revenue', 'add'], ['procats' => $procats]);
+        $sellers = $this->_MODEL->get('seller');
+        $this->_VIEW->render(['cms','revenue', 'add'], ['procats' => $procats, 'sellers' => $sellers]);
     }
 
     function edit(){

@@ -472,6 +472,7 @@ html{
     font-weight: bold;
 }
 
+
 .cmsMenuToggle{
     cursor: pointer;
     padding: 5px;
@@ -724,6 +725,10 @@ tr:nth-child(even) {
 .popupSearchFormReset:hover{
     cursor: pointer;
     color: var(--c1);
+}
+
+.popupSearchItem{
+    text-decoration: none;
 }
 
 .cmsFilter{

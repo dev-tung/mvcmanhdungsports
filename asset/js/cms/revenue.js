@@ -5,7 +5,27 @@ Validator({
         Validator.slbRequired({
             selector: '#revenue_category',
             submit: true
-        })
+        }), 
+        Validator.tbRequired({
+            selector: '#customer_name',
+            submit: true
+        }),
+        Validator.tbRequired({
+            selector: '#revenue_name',
+            submit: true
+        }),
+        Validator.tbRequired({
+            selector: '#revenue_quantity',
+            submit: true
+        }),
+        Validator.tbRequired({
+            selector: '#revenue_price_output',
+            submit: true
+        }),
+        Validator.tbRequired({
+            selector: '#seller_id',
+            submit: true
+        }),
     ],
     onSubmit: (data) => {
         data.form.submit();
@@ -51,7 +71,7 @@ revenueCategorySlb.addEventListener("change", function(){
             response.data.forEach(Item => {
     
                 let middle = 80; 
-                let content = Item.product_name;
+                let content = Item.product_name + ' | ' + Item.product_description;
                 let matchIndex = content.indexOf(searchValue);
             
                 content = matchIndex > middle 
@@ -61,8 +81,8 @@ revenueCategorySlb.addEventListener("change", function(){
                 if( content.toUpperCase().indexOf(searchValue.toUpperCase()) != -1 ){
                     content = content.replace(new RegExp(searchValue, 'gi'), '<mark>$&</mark>');
                     popupSearchResult.innerHTML += 
-                            `<a href="#" class="popupSearchItem popupSearchItem-productName" id="${Item.product_id}">
-                                <p class="popupSearchTitle">${Item.product_name}</p>
+                            `<a href="#" class="popupSearchItem popupSearchItem-productName" id="${Item.product_id}" data-product-quantity="${Item.product_quantity}" data-product-price="${Item.product_price_output}">
+                                <span class="popupSearchTitle">${Item.product_name}</span> <span>(${Item.product_quantity})</span>
                                 <div class="popupSearchContent">
                                     <img src="${Define.ROOT_URL}/${Item.product_thumbnail}" width="25" height="25">
                                     <p class="popupSearchContent-Desc">${content}</p>
@@ -71,9 +91,15 @@ revenueCategorySlb.addEventListener("change", function(){
                             
                     document.querySelectorAll('.popupSearchItem-productName').forEach((product) => {
                         product.onclick = () => {
-                            document.getElementById('revenue_id').value = product.getAttribute('id');
-                            document.getElementById('revenue_name').value = product.querySelector('.popupSearchTitle').innerHTML;
-                            document.getElementById('popupSearchModalProduct').classList.remove("Show");
+                            let product_quantity = product.getAttribute('data-product-quantity');
+                            if(product_quantity>0){
+                                document.getElementById('revenue_id').value = product.getAttribute('id');
+                                document.getElementById('revenue_quantity').setAttribute("max", product_quantity);
+                                document.getElementById('revenue_quantity').value = 1;
+                                document.getElementById('revenue_name').value = product.querySelector('.popupSearchTitle').innerHTML;
+                                document.getElementById('popupSearchModalProduct').classList.remove("Show");
+                                document.getElementById('revenue_price_output').value = parseInt(product_quantity) * parseInt(product.getAttribute('data-product-price'));
+                            }
                         }
                     });
     
